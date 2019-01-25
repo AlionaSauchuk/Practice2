@@ -1,0 +1,13 @@
+{
+  "name": "ODataV4Tutorial",
+  "private": true,
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "UI5 Demo App - ODataV4 Tutorial",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify": "^3.0.1",
+    "gulp-ui5-preload": "^1.3.1"
+  }
+}

@@ -1,0 +1,28 @@
+<mvc:View
+	controllerName="sap.ui.core.tutorial.odatav4.controller.App"
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Shell>
+		<App busy="{appView>/busy}" class="sapUiSizeCompact">
+			<pages>
+				<Page>
+					<content>
+							<List
+								items="{/People}"
+								headerText="{i18n>peoplePageTitle}"
+								growing="true"
+								growingThreshold="10"
+								growingScrollToLoad="false">
+								<StandardListItem
+									title="{FirstName} {LastName}"
+									description="{Age}"
+								/>
+							</List>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
