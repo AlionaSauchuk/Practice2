@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="sap.ui.core.tutorial.odatav4.controller.PersonDetails"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<Shell>
+		<App id="app"/>
+	</Shell>
+</mvc:View>

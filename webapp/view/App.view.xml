@@ -4,10 +4,10 @@
 	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Shell>
-		<App busy="{appView>/busy}" class="sapUiSizeCompact">
+		<Shell>
+		<App id="app">
 			<pages>
-				<Page>
+				<Page busy="{appView>/busy}" class="sapUiSizeCompact">
 					<content>
 							<List
 								items="{/People}"
@@ -16,8 +16,11 @@
 								growingThreshold="10"
 								growingScrollToLoad="false">
 								<StandardListItem
+									id="deviceSimple"
 									title="{FirstName} {LastName}"
 									description="{Age}"
+									type="Active"
+									press=".onItemSelected"
 								/>
 							</List>
 					</content>
