@@ -1,21 +1,18 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
-	"sap/m/ObjectAttribute"
-], function (Controller, JSONModel, ObjectAttribute) {
+    "sap/ui/core/tutorial/odatav4/controller/BaseController",
+    "sap/ui/model/json/JSONModel",
+    "sap/m/ObjectAttribute"
+], function (BaseController, JSONModel, ObjectAttribute) {
 	"use strict";
 
-	return Controller.extend("sap.ui.core.tutorial.odatav4.controller.App", {
+	return BaseController.extend("sap.ui.core.tutorial.odatav4.controller.Home", {
 
-		/**
-		 *  Hook for initializing the controller
-		 */
 		onInit : function () {
 			var oJSONData = {
 				busy : false
 			};
 			var oModel = new JSONModel(oJSONData);
-			this.getView().setModel(oModel, "appView");
+			this.getView().setModel(oModel, "home");
 		},
 
 		peopleListFactory : function(sId, oContext) {
@@ -42,14 +39,23 @@ sap.ui.define([
 			}
 
 			return oUIControl;
-		},
+        },
 
-		onItemSelected : function(oEvent) {
+        onItemSelected: function(oEvent) {
+
+            this.getRouter().getTargets().display("details", {
+				fromTarget : "home"
+			});
+            
+            /*
 			var oSelectedItem = oEvent.getSource();
 			var oContext = oSelectedItem.getBindingContext("device");
 			var sPath = oContext.getPath();
 			var oProductDetailPanel = this.byId("deviceDetailsPanel");
-			oProductDetailPanel.bindElement({ path: sPath, model: "device" });
-		},
+            oProductDetailPanel.bindElement({ path: sPath, model: "device" });
+            */
+		}
+
+		
 	});
 });

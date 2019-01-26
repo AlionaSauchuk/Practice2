@@ -1,0 +1,24 @@
+<mvc:View
+	controllerName="sap.ui.core.tutorial.odatav4.controller.Home"
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+		<Page class="sapUiSizeCompact">
+			<content>
+				<List
+					items="{/People}"
+					headerText="{i18n>peoplePageTitle}"
+					growing="true"
+					growingThreshold="10"
+					growingScrollToLoad="false">
+					<StandardListItem
+						id="deviceSimple"
+						title="{FirstName} {LastName}"
+						description="{Age}"
+						type="Active"
+						press=".onItemSelected"/>
+				</List>
+			</content>
+		</Page>
+</mvc:View>

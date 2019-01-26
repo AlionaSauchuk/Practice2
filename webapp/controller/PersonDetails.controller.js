@@ -1,10 +1,29 @@
 sap.ui.define([
-	"./controller/BaseController"
-], function (BaseController) {
+	"sap/ui/core/tutorial/odatav4/controller/BaseController"
+],function (BaseController) {
 	"use strict";
-
 	return BaseController.extend("sap.ui.core.tutorial.odatav4.controller.PersonDetails", {
+		onInit: function () {
+			var oRouter, oTarget;
+
+			oRouter = this.getRouter();
+			oTarget = oRouter.getTarget("details");
+			oTarget.attachDisplay(function (oEvent) {
+				this._oData = oEvent.getParameter("data");	// store the data
+			}, this);
+		},
+
+		onNavBack : function () {
+			// in some cases we could display a certain target when the back button is pressed
+			if (this._oData && this._oData.fromTarget) {
+				this.getRouter().getTargets().display(this._oData.fromTarget);
+				delete this._oData.fromTarget;
+				return;
+			}
+
+			// call the parent's onNavBack
+			BaseController.prototype.onNavBack.apply(this, arguments);
+		}
 
 	});
-
 });

@@ -32,7 +32,7 @@
 			"viewName": "sap.ui.core.tutorial.odatav4.view.App",
 			"type": "XML",
 			"async": true,
-			"id": "app"
+			"id": "appView"
 		},
 		"dependencies": {
 			"minUI5Version": "1.48.0",
@@ -67,8 +67,8 @@
 		   "config": {
 			  "routerClass": "sap.m.routing.Router",
 			  "viewType": "XML",
-			  "viewPath": "ap.ui.core.tutorial.odatav4.view",
-			  "controlId": "app",
+			  "viewPath": "sap.ui.core.tutorial.odatav4.view",
+			  "controlId": "appView",
 			  "controlAggregation": "pages",
 			  "transition": "slide",
 			  "bypassed": {
@@ -78,21 +78,27 @@
 		   },
 		   "routes": [{
 			  "pattern": "",
-			  "name": "appHome",
+			  "name": "Home",
 			  "target": "home"
 		   }],
 		   "targets": {
-			  "home": {
-				 "viewId": "appView",
-				 "viewName": "App",
-				 "viewLevel" : 1
-			    }
-		   },
-            "notFound": {
-               "viewId": "notFound",
-               "viewName": "NotFound",
-               "transition": "show"
-            }
+			"home": {
+				"viewId": "home",
+				"viewName": "Home",
+				"viewLevel" : 1
+			},
+			  "details": {
+				 "viewId": "details",
+				 "viewName": "PersonDetails",
+				 "transition": "show",
+				 "viewLevel" : 2
+				},
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
+				 }
+		   }
 		}
 	}
 }
