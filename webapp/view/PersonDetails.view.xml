@@ -1,28 +1,29 @@
 <mvc:View
-	controllerName="sap.ui.core.tutorial.odatav4.controller.PersonDetails"
+	controllerName="sap.ui.odatav4.controller.PersonDetails"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.ui.layout.form"
 	busyIndicatorDelay="0">
 	<Page
 		id="personPage"
-		title="{i18n>PersonDetailsOf} {FirstName} {LastName}"
+		title="{i18n>PersonDetailsOf} {people>FirstName} {people>LastName}"
 		showNavButton="true"
 		navButtonPress=".onNavBack"
 		class="sapUiResponsiveContentPadding">
 		<content>
 			<Panel
-				id="personPanel"
+				id="PeopleDetailPanel"
 				width="auto"
 				class="sapUiResponsiveMargin sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
-						<Title text="{i18n>PersonIDColon}" level="H2"/>
+						<Title text="{i18n>PersonIDColon} {people>UserName}" level="H2"/>
 						<ToolbarSpacer />
 					</Toolbar>
 				</headerToolbar>
 				<content>
 					<f:SimpleForm
+						id="details"
 						minWidth="1024"
 						editable="false"
 						layout="ResponsiveGridLayout"
@@ -30,9 +31,9 @@
 						columnsL="1" columnsM="1">
 						<f:content>
 							<Label text="{i18n>formFirstName}"/>
-							<Text text="{FirstName}"/>
+							<Text text="{people>FirstName}"/>
 							<Label text="{i18n>formLastName}"/>
-							<Text text="{LastName}"/>
+							<Text text="{people>LastName}"/>
 						</f:content>
 					</f:SimpleForm>
 				</content>

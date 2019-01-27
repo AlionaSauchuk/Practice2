@@ -1,10 +1,10 @@
 sap.ui.define([
-    "sap/ui/core/tutorial/odatav4/controller/BaseController",
+    "sap/ui/odatav4/controller/BaseController",
     "sap/ui/model/json/JSONModel"
 ], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.core.tutorial.odatav4.controller.Home", {
+	return BaseController.extend("sap.ui.odatav4.controller.Home", {
 
 		onInit : function () {
 			var oJSONData = {
@@ -14,15 +14,18 @@ sap.ui.define([
 			this.getView().setModel(oModel, "home");
 		},
 
+		
+		peopleListFactory : function(sId, oContext) {
+			var oUIControl;
+			oUIControl = this.byId("peopleExtended").clone(sId);
+			return oUIControl;
+		},	
+
         onItemSelected: function(oEvent) {
 
-            var oItem, oCtx;
-			oItem = oEvent.getSource();
-            oCtx = oItem.getBindingContext();
-            var tempArr = oCtx.sPath.split('\'');
-			this.getRouter().navTo("details",{
-				personId : tempArr[1]
-			});
+			var oSelectedItem = oEvent.getSource();
+			var context = encodeURIComponent(oSelectedItem.getBindingContext('people').getPath());
+			this.getRouter().navTo("details",  {invoicePath: context});
             
 		}
 

@@ -1,23 +1,14 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "sap.ui.core.tutorial.odatav4",
+		"id": "sap.ui.odatav4",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
 		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"dataSources": {
-			"default": {
-                "uri": "https://services.odata.org/TripPinRESTierService/(S(id))/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "4.0"
-				}
-			}
-		}
+		"description": "{{appDescription}}"
 	},
 	"sap.ui": {
 		"technology": "UI5",
@@ -29,7 +20,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.core.tutorial.odatav4.view.App",
+			"viewName": "sap.ui.odatav4.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "appView"
@@ -50,24 +41,19 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.core.tutorial.odatav4.i18n.i18n"
+					"bundleName": "sap.ui.odatav4.i18n.i18n"
 				}
 			},
-			"": {
-				"dataSource": "default",
-				"settings": {
-					"autoExpandSelect": true,
-					"operationMode": "Server",
-					"groupId": "$direct",
-					"synchronizationMode": "None"
-				}
+			"people": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "https://services.odata.org/TripPinRESTierService/(S(pbifwq4mabylls1sbsykc25r))/People"
 			}
 		},
 		"routing": {
 		   "config": {
 			  "routerClass": "sap.m.routing.Router",
 			  "viewType": "XML",
-			  "viewPath": "sap.ui.core.tutorial.odatav4.view",
+			  "viewPath": "sap.ui.odatav4.view",
 			  "controlId": "appView",
 			  "controlAggregation": "pages",
 			  "transition": "slide",
@@ -81,11 +67,11 @@
 			  "name": "Home",
 			  "target": "home"
 		   },{
-			"pattern": "",
+			"pattern": "details",
 			"name": "PersonDetails",
 			"target": "details"
 		},{
-			"pattern": "{personId}",
+			"pattern": "details/{invoicePath}",
 			"name": "details",
 			"target": "details"
 		}],

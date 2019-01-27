@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="sap.ui.core.tutorial.odatav4.controller.Home"
+	controllerName="sap.ui.odatav4.controller.Home"
 	displayBlock="true"
 	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
@@ -11,15 +11,21 @@
 		navButtonPress=".onNavBack"
 		class="sapUiResponsiveContentPadding">
 		<content>
-			<List id="personList" headerText="{i18n>peoplePageTitle}" items="{/People}">
-				<items>
-					<StandardListItem
-						title="{FirstName} {LastName}"
-						iconDensityAware="false"
-						iconInset="false"
-						type="Navigation"
-						press=".onItemSelected"/>
-				</items>
+			<List id="personList" 
+				  headerText="{i18n>peoplePageTitle}" 
+				  items="{
+					path: 'people>/value',
+					factory: '.peopleListFactory'
+					}"
+			>
+				<dependents>
+					<ObjectListItem
+						id="peopleExtended"
+						title="{people>UserName}"
+						type="Active"
+						press = ".onItemSelected">
+					</ObjectListItem>
+				</dependents>
 			</List>
 		</content>
 	</Page>

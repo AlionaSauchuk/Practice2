@@ -1,9 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/tutorial/odatav4/controller/BaseController"
+	"sap/ui/odatav4/controller/BaseController"
 ], function (BaseController) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.core.tutorial.odatav4.controller.NotFound", {
+	return BaseController.extend("sap.ui.odatav4.controller.NotFound", {
 
 		onInit: function () {
 			var oRouter, oTarget;
