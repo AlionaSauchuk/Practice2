@@ -79,7 +79,6 @@ sap.ui.define([
 	 */
 	function findUserIndex(sUserName) {
 		for (var i = 0; i < aUsers.length; i++) {
-			console.log(aUsers[i].Gender)
 			if (aUsers[i].UserName === sUserName) {
 				return i;
 			}
@@ -346,9 +345,8 @@ sap.ui.define([
 			iIndex = findUserIndex(sKey);
 			if (iIndex > -1) {
 				sResponseBody = '{"@odata.context": "' + getBaseUrl(oXhr.url) +
-					'$metadata#People(Gender,Age,FirstName,LastName,UserName)/$entity",' +
+					'$metadata#People/$entity",' +
 					JSON.stringify(aUsers[iIndex]).slice(1);
-					сonsole.log('sResponseBody:	'+aUsers[iIndex].slice(1));
 				return getSuccessResponse(sResponseBody);
 			} else {
 				console.log('error');
@@ -374,7 +372,7 @@ sap.ui.define([
 			}
 
 			sResponseBody = '{"@odata.context": "' + getBaseUrl(oXhr.url) +
-				'$metadata#People(Gender,Age,FirstName,LastName,UserName)",' +
+				'$metadata#People",' +
 				sCount +
 				'"value": ' + JSON.stringify(aResult) +
 				"}";
@@ -522,37 +520,17 @@ sap.ui.define([
 	function handleDirectRequest(oXhr) {
 		var aResponse;
 
-		switch (oXhr.method) {
-			case "GET":
 				if (/\$metadata/.test(oXhr.url)) {
+					console.log('metadata');
 					aResponse = handleGetMetadataRequests();
 				} else if (/\/\$count/.test(oXhr.url)) {
-					aResponse = handleGetCountRequests();
+					console.log('count');
+					aResponse = handleGetCountRequests();					
 				} else if (/People.*\?/.test(oXhr.url)) {
+					console.log('all');
 					aResponse = handleGetUserRequests(oXhr, /\$count=true/.test(oXhr.url));
 				}
-				break;
-			case "PATCH":
-				if (/People/.test(oXhr.url)) {
-					aResponse = handlePatchUserRequests(oXhr);
-				}
-				break;
-			case "POST":
-				if (/People/.test(oXhr.url)) {
-					aResponse = handlePostUserRequests(oXhr);
-				} else if (/ResetDataSource/.test(oXhr.url)) {
-					aResponse = handleResetDataRequest();
-				}
-				break;
-			case "DELETE":
-				if (/People/.test(oXhr.url)) {
-					aResponse = handleDeleteUserRequests(oXhr);
-				}
-				break;
-			default:
-				break;
-		}
-
+	
 		return aResponse;
 	}
 
@@ -660,11 +638,7 @@ sap.ui.define([
 			(oXhr.requestBody ? "Request body is:\n" + oXhr.requestBody : "No request body.") + "\n",
 			sLogComponent);
 
-		if (oXhr.method === "POST" && /\$batch$/.test(oXhr.url)) {
-			aResponse = handleBatchRequest(oXhr);
-		} else {
 			aResponse = handleDirectRequest(oXhr);
-		}
 
 		oXhr.respond(aResponse[0], aResponse[1], aResponse[2]);
 

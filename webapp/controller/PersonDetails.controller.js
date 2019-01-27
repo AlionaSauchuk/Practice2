@@ -4,26 +4,43 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("sap.ui.core.tutorial.odatav4.controller.PersonDetails", {
 		onInit: function () {
-			var oRouter, oTarget;
-
-			oRouter = this.getRouter();
-			oTarget = oRouter.getTarget("details");
-			oTarget.attachDisplay(function (oEvent) {
-				this._oData = oEvent.getParameter("data");	// store the data
+			var oRouter = this.getRouter();
+			oRouter.getRoute("details").attachMatched(this._onRouteMatched, this);
+			// Hint: we don't want to do it this way
+			/*
+			oRouter.attachRouteMatched(function (oEvent){
+				var sRouteName, oArgs, oView;
+				sRouteName = oEvent.getParameter("name");
+				if (sRouteName === "details"){
+					this._onRouteMatched(oEvent);
+				}
 			}, this);
+			*/
 		},
-
-		onNavBack : function () {
-			// in some cases we could display a certain target when the back button is pressed
-			if (this._oData && this._oData.fromTarget) {
-				this.getRouter().getTargets().display(this._oData.fromTarget);
-				delete this._oData.fromTarget;
-				return;
+		_onRouteMatched : function (oEvent) {
+			var oArgs, oView;
+			oArgs = oEvent.getParameter("arguments");
+			oView = this.getView();
+			console.log(oArgs);
+			oView.bindElement({
+				path : "/People('" + oArgs.personId + "')",
+				events : {
+					
+					change: this._onBindingChange.bind(this),
+					dataRequested: function (oEvent) {
+						oView.setBusy(true);
+					},
+					dataReceived: function (oEvent) {
+						oView.setBusy(false);
+					}
+				}
+			});
+		},
+		_onBindingChange : function (oEvent) {
+			// No data for the binding
+			if (!this.getView().getBindingContext()) {
+				this.getRouter().getTargets().display("notFound");
 			}
-
-			// call the parent's onNavBack
-			BaseController.prototype.onNavBack.apply(this, arguments);
 		}
-
 	});
 });

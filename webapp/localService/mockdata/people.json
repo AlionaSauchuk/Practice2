@@ -1,145 +1,125 @@
 {
-	"@odata.context": "https://services.odata.org/TripPinRESTierService/(S(id))/$metadata#People(Gender,Age,FirstName,LastName,UserName)",
+	"@odata.context": "https://services.odata.org/TripPinRESTierService/(S(id))/$metadata#People",
 	"value": [
 		{
 			"Age": 23,
 			"FirstName": "Angel",
 			"LastName": "Huffman",
-			"UserName": "angelhuffman",
-			"Gender":	"Female"
+			"UserName": "angelhuffman"
 		},
 		{
 			"Age": 44,
 			"FirstName": "Clyde",
 			"LastName": "Guess",
-			"UserName": "clydeguess",
-			"Gender":	"Female"
+			"UserName": "clydeguess"
 		},
 		{
 			"Age": 19,
 			"FirstName": "Elaine",
 			"LastName": "Stewart",
-			"UserName": "elainestewart",
-			"Gender":	"Male"
+			"UserName": "elainestewart"
 		},
 		{
 			"Age": 37,
 			"FirstName": "Genevieve",
 			"LastName": "Reeves",
-			"UserName": "genevievereeves",
-			"Gender":	"Female"
+			"UserName": "genevievereeves"
 		},
 		{
 			"Age": 25,
 			"FirstName": "Georgina",
 			"LastName": "Barlow",
-			"UserName": "georginabarlow",
-			"Gender":	"Male"
+			"UserName": "georginabarlow"
 		},
 		{
 			"Age": 19,
 			"FirstName": "Javier",
 			"LastName": "Alfred",
-			"UserName": "javieralfred",
-			"Gender":	"Female"
+			"UserName": "javieralfred"
 		},
 		{
 			"Age": 26,
 			"FirstName": "Joni",
 			"LastName": "Rosales",
-			"UserName": "jonirosales",
-			"Gender":	"Male"
+			"UserName": "jonirosales"
 		},
 		{
 			"Age": 41,
 			"FirstName": "Keith",
 			"LastName": "Pinckney",
-			"UserName": "keithpinckney",
-			"Gender":	"Female"
+			"UserName": "keithpinckney"
 		},
 		{
 			"Age": 30,
 			"FirstName": "Krista",
 			"LastName": "Kemp",
-			"UserName": "kristakemp",
-			"Gender":	"Male"
+			"UserName": "kristakemp"
 		},
 		{
 			"Age": 29,
 			"FirstName": "Laurel",
 			"LastName": "Osborn",
-			"UserName": "laurelosborn",
-			"Gender":	"Female"
+			"UserName": "laurelosborn"
 		},
 		{
 			"Age": 53,
 			"FirstName": "Marshall",
 			"LastName": "Garay",
-			"UserName": "marshallgaray",
-			"Gender":	"Male"
+			"UserName": "marshallgaray"
 		},
 		{
 			"Age": 66,
 			"FirstName": "Ronald",
 			"LastName": "Mundy",
-			"UserName": "ronaldmundy",
-			"Gender":	"Male"
+			"UserName": "ronaldmundy"
 		},
 		{
 			"Age": 51,
 			"FirstName": "Russell",
 			"LastName": "Whyte",
-			"UserName": "russellwhyte",
-			"Gender":	"Male"
+			"UserName": "russellwhyte"
 		},
 		{
 			"Age": 57,
 			"FirstName": "Ryan",
 			"LastName": "Theriault",
-			"UserName": "ryantheriault",
-			"Gender":	"Female"
+			"UserName": "ryantheriault"
 		},
 		{
 			"Age": 34,
 			"FirstName": "Sallie",
 			"LastName": "Sampson",
-			"UserName": "salliesampson",
-			"Gender":	"Male"
+			"UserName": "salliesampson"
 		},
 		{
 			"Age": 18,
 			"FirstName": "Sandy",
 			"LastName": "Osborn",
-			"UserName": "sandyosborn",
-			"Gender":	"Female"
+			"UserName": "sandyosborn"
 		},
 		{
 			"Age": 24,
 			"FirstName": "Scott",
 			"LastName": "Ketchum",
-			"UserName": "scottketchum",
-			"Gender":	"Male"
+			"UserName": "scottketchum"
 		},
 		{
 			"Age": 31,
 			"FirstName": "Ursula",
 			"LastName": "Bright",
-			"UserName": "ursulabright",
-			"Gender":	"Female"
+			"UserName": "ursulabright"
 		},
 		{
 			"Age": 40,
 			"FirstName": "Vincent",
 			"LastName": "Calabrese",
-			"UserName": "vincentcalabrese",
-			"Gender":	"Male"
+			"UserName": "vincentcalabrese"
 		},
 		{
 			"Age": 45,
 			"FirstName": "Willie",
 			"LastName": "Ashmore",
-			"UserName": "willieashmore",
-			"Gender":	"Female"
+			"UserName": "willieashmore"
 		}
 	]
 }

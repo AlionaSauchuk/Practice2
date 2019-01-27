@@ -80,24 +80,31 @@
 			  "pattern": "",
 			  "name": "Home",
 			  "target": "home"
-		   }],
+		   },{
+			"pattern": "",
+			"name": "PersonDetails",
+			"target": "details"
+		},{
+			"pattern": "{personId}",
+			"name": "details",
+			"target": "details"
+		}],
 		   "targets": {
 			"home": {
 				"viewId": "home",
 				"viewName": "Home",
 				"viewLevel" : 1
 			},
-			  "details": {
-				 "viewId": "details",
-				 "viewName": "PersonDetails",
-				 "transition": "show",
-				 "viewLevel" : 2
-				},
-				"notFound": {
-					"viewId": "notFound",
-					"viewName": "NotFound",
-					"transition": "show"
-				 }
+			"details": {
+			 "viewId": "details",
+			 "viewName": "PersonDetails",
+			 "transition": "show"
+			},
+			"notFound": {
+				"viewId": "notFound",
+				"viewName": "NotFound",
+				"transition": "show"
+			}
 		   }
 		}
 	}

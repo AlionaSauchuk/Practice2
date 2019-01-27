@@ -4,21 +4,23 @@
 	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-		<Page class="sapUiSizeCompact">
-			<content>
-				<List
-					items="{/People}"
-					headerText="{i18n>peoplePageTitle}"
-					growing="true"
-					growingThreshold="10"
-					growingScrollToLoad="false">
+		<Page
+		id="personListPage"
+		title="{i18n>PersonList}"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<List id="personList" headerText="{i18n>peoplePageTitle}" items="{/People}">
+				<items>
 					<StandardListItem
-						id="deviceSimple"
 						title="{FirstName} {LastName}"
-						description="{Age}"
-						type="Active"
+						iconDensityAware="false"
+						iconInset="false"
+						type="Navigation"
 						press=".onItemSelected"/>
-				</List>
-			</content>
-		</Page>
+				</items>
+			</List>
+		</content>
+	</Page>
 </mvc:View>
