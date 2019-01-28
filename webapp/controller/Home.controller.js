@@ -30,12 +30,6 @@ sap.ui.define([
 			var binding = list.getBinding("items");
 			binding.filter(aFilters, "Application");
 		},
-		
-		peopleListFactory : function(sId, oContext) {
-			var oUIControl;
-			oUIControl = this.byId("peopleExtended").clone(sId);
-			return oUIControl;
-		},	
 
         onItemSelected: function(oEvent) {
 

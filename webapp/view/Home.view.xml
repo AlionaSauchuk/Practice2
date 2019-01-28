@@ -19,8 +19,7 @@
 					growing="true"
 					growingThreshold="10" 
 					items="{
-						path: 'people>/value',
-						factory: '.peopleListFactory'
+						path: 'people>/value'
 						}"
 				>
 					<infoToolbar>
