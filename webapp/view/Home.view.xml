@@ -2,33 +2,43 @@
 	controllerName="sap.ui.odatav4.controller.Home"
 	displayBlock="true"
 	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc">
 	<App id="home">
 		<pages>
-			<Page
-		id="personListPage"
-		title="{i18n>peoplePageTitle}"
-		class="sapUiResponsiveContentPadding">
-		<content>
-			<List id="personList" 
-				  headerText="{i18n>peopleListTitle}"
-				  growing="true"
-				  growingThreshold="10" 
-				  items="{
-					path: 'people>/value',
-					factory: '.peopleListFactory'
-					}"
-			>
-			<items>
-					<StandardListItem
-						title="{people>UserName}"
-						type="Navigation"
-						press = ".onItemSelected"
-					/>
-			</items>
-			</List>
-		</content>
-	</Page>
+			<Page showHeader="false">
+			<subHeader>
+				<Toolbar>
+					<SearchField liveChange="onSearch"
+								 width="100%" />
+				</Toolbar>
+			</subHeader>
+			<content>
+				<List id="personList" 
+					headerText="{i18n>peopleListTitle}"
+					growing="true"
+					growingThreshold="10" 
+					items="{
+						path: 'people>/value',
+						factory: '.peopleListFactory'
+						}"
+				>
+					<infoToolbar>
+					<Toolbar
+						visible="false"
+						id="idInfoToolbar" >
+						<Label id="idFilterLabel" />
+					</Toolbar>
+					</infoToolbar>
+					<items>
+						<StandardListItem title="{people>UserName}"
+								          type="Navigation"
+										  press = ".onItemSelected"
+						/>
+					</items>
+				</List>
+			</content>
+			</Page>
 		</pages>
 	</App>
 </mvc:View>
