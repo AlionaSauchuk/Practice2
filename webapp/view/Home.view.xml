@@ -1,18 +1,17 @@
 <mvc:View
 	controllerName="sap.ui.odatav4.controller.Home"
 	displayBlock="true"
-	xmlns:l="sap.ui.layout"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-		<Page
+	<App id="home">
+		<pages>
+			<Page
 		id="personListPage"
-		title="{i18n>PersonList}"
-		showNavButton="true"
-		navButtonPress=".onNavBack"
+		title="{i18n>peoplePageTitle}"
 		class="sapUiResponsiveContentPadding">
 		<content>
 			<List id="personList" 
-				  headerText="{i18n>peoplePageTitle}" 
+				  headerText="{i18n>peopleListTitle}" 
 				  items="{
 					path: 'people>/value',
 					factory: '.peopleListFactory'
@@ -29,4 +28,6 @@
 			</List>
 		</content>
 	</Page>
+		</pages>
+	</App>
 </mvc:View>

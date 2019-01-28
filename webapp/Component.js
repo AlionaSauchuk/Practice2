@@ -1,32 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/mvc/XMLView",
-	"sap/ui/model/resource/ResourceModel",
-	"sap/ui/core/ComponentContainer"
-], function(UIComponent, JSONModel, XMLView, ResourceModel, ComponentContainer) {
+], function(UIComponent) {
 	"use strict";
-/*
-	sap.ui.getCore().attachInit(function () {
-		
-		new ComponentContainer({
-			name: "sap.ui.odatav4",
-			settings : {
-				id : "db"
-			}
-		}).placeAt("content");
-		//var oModelJson = new JSONModel("https://services.odata.org/TripPinRESTierService/(S(pbifwq4mabylls1sbsykc25r))/People");
-		//console.log(oModelJson);
-		//sap.ui.getCore().setModel(oModelJson, "people");
-		var oResourceModel = new ResourceModel({
-			bundleName: "sap.ui.odatav4.i18n.i18n"
-		});
-		sap.ui.getCore().setModel(oResourceModel, "i18n");
-		//var oView = new XMLView({
-		//	viewName: "sap.ui.demo.db.view.App"
-		//}).placeAt("content");
-	});
-*/
+
 	return UIComponent.extend("Component", {
 
 		metadata: {
@@ -34,10 +10,8 @@ sap.ui.define([
 		},
 
 		init: function () {
-            // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
 
-            // create the views based on the url/hash
             this.getRouter().initialize();
         }
 	});

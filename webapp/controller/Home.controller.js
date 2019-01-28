@@ -11,7 +11,7 @@ sap.ui.define([
 				busy : false
 			};
 			var oModel = new JSONModel(oJSONData);
-			this.getView().setModel(oModel, "home");
+			this.getView().setModel(oModel, "app");
 		},
 
 		
@@ -25,7 +25,7 @@ sap.ui.define([
 
 			var oSelectedItem = oEvent.getSource();
 			var context = encodeURIComponent(oSelectedItem.getBindingContext('people').getPath());
-			this.getRouter().navTo("details",  {invoicePath: context});
+			this.getRouter().navTo("details",  {personID: context});
             
 		}
 

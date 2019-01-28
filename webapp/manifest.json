@@ -20,10 +20,10 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.odatav4.view.App",
+			"viewName": "sap.ui.odatav4.view.Home",
 			"type": "XML",
 			"async": true,
-			"id": "appView"
+			"id": "home"
 		},
 		"dependencies": {
 			"minUI5Version": "1.48.0",
@@ -54,7 +54,7 @@
 			  "routerClass": "sap.m.routing.Router",
 			  "viewType": "XML",
 			  "viewPath": "sap.ui.odatav4.view",
-			  "controlId": "appView",
+			  "controlId": "home",
 			  "controlAggregation": "pages",
 			  "transition": "slide",
 			  "bypassed": {
@@ -65,26 +65,26 @@
 		   "routes": [{
 			  "pattern": "",
 			  "name": "Home",
-			  "target": "home"
+			  "target": "app"
 		   },{
 			"pattern": "details",
 			"name": "PersonDetails",
 			"target": "details"
 		},{
-			"pattern": "details/{invoicePath}",
+			"pattern": "details/{personID}",
 			"name": "details",
 			"target": "details"
 		}],
 		   "targets": {
-			"home": {
-				"viewId": "home",
+			"app": {
+				"viewId": "app",
 				"viewName": "Home",
 				"viewLevel" : 1
 			},
 			"details": {
 			 "viewId": "details",
 			 "viewName": "PersonDetails",
-			 "transition": "show"
+			 "viewLevel" : 1
 			},
 			"notFound": {
 				"viewId": "notFound",

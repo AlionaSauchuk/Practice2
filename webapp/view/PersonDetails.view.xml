@@ -12,7 +12,6 @@
 		class="sapUiResponsiveContentPadding">
 		<content>
 			<Panel
-				id="PeopleDetailPanel"
 				width="auto"
 				class="sapUiResponsiveMargin sapUiNoContentPadding">
 				<headerToolbar>
@@ -23,17 +22,25 @@
 				</headerToolbar>
 				<content>
 					<f:SimpleForm
-						id="details"
 						minWidth="1024"
 						editable="false"
 						layout="ResponsiveGridLayout"
-						labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
-						columnsL="1" columnsM="1">
+						>
 						<f:content>
 							<Label text="{i18n>formFirstName}"/>
 							<Text text="{people>FirstName}"/>
 							<Label text="{i18n>formLastName}"/>
 							<Text text="{people>LastName}"/>
+							<Label text="{i18n>formGender}"/>
+							<Text text="{people>Gender}"/>
+							<Label text="{i18n>formEmail}"/>
+							<FormattedText htmlText="{people>Emails/0}&lt;br&gt;{people>Emails/1}" />
+							<Label text="{i18n>formCountryRegion}"/>
+							<FormattedText htmlText="{people>AddressInfo/0/City/CountryRegion}" />
+							<Label text="{i18n>formCity}"/>
+							<FormattedText htmlText="{people>AddressInfo/0/City/Name}" />
+							<Label text="{i18n>formAddress}"/>
+							<FormattedText htmlText="{people>AddressInfo/0/Address}" />
 						</f:content>
 					</f:SimpleForm>
 				</content>
