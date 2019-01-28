@@ -11,20 +11,21 @@
 		class="sapUiResponsiveContentPadding">
 		<content>
 			<List id="personList" 
-				  headerText="{i18n>peopleListTitle}" 
+				  headerText="{i18n>peopleListTitle}"
+				  growing="true"
+				  growingThreshold="10" 
 				  items="{
 					path: 'people>/value',
 					factory: '.peopleListFactory'
 					}"
 			>
-				<dependents>
-					<ObjectListItem
-						id="peopleExtended"
+			<items>
+					<StandardListItem
 						title="{people>UserName}"
-						type="Active"
-						press = ".onItemSelected">
-					</ObjectListItem>
-				</dependents>
+						type="Navigation"
+						press = ".onItemSelected"
+					/>
+			</items>
 			</List>
 		</content>
 	</Page>
